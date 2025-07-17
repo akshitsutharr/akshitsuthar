@@ -15,7 +15,7 @@ export function ContactSection() {
       return;
     }
 
-    const mailtoLink = `mailto:youremail@example.com?subject=New Message from ${encodeURIComponent(
+    const mailtoLink = `mailto:itsmeakshit.005@gmail.com?subject=New Message from ${encodeURIComponent(
       email
     )}&body=Email: ${encodeURIComponent(email)}%0D%0A%0D%0AMessage: ${encodeURIComponent(message)}`;
     window.location.href = mailtoLink;
