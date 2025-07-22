@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Mail } from "lucide-react";
+import { Mail,Contact } from "lucide-react";
 import { useState } from "react";
 
 export function ContactSection() {
@@ -23,10 +23,11 @@ export function ContactSection() {
 
   return (
     <div className="space-y-8">
-      <Card className="border-border/50">
+      <Card className="border-border/85">
         <CardHeader>
           <CardTitle className="flex items-center space-x-2 text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">
             <Mail className="h-6 w-6" />
+            <Contact className="w-5 h-5 text-primary mr-1" />
             <span>Contact Me </span>
           </CardTitle>
         </CardHeader>

@@ -34,7 +34,7 @@ export function BlogSection() {
       try {
         // Using `tags` (plural) for multiple tags.
         const response = await fetch(
-          "https://dev.to/api/articles?tags=ai,fullstack,react,python&per_page=4"
+          "https://dev.to/api/articles?tag=react&tag=nodejs&tag=typescript&tag=fullstack&tag=ai&tag=webdev&tag=javascript&tag=python&per_page=5&top=7"
         );
         if (!response.ok) {
           throw new Error(`Failed to fetch articles: ${response.statusText}`);
@@ -95,17 +95,17 @@ export function BlogSection() {
                       <div className="flex items-center space-x-4 text-xs text-muted-foreground">
                         <div className="flex items-center space-x-1" title="Views">
                           <Eye className="h-3 w-3" />
-                          {/* FIX: Provide a fallback of 0 to prevent error on undefined */}
+                      
                           <span>{(blog.page_views_count || 0).toLocaleString()}</span>
                         </div>
                         <div className="flex items-center space-x-1" title="Likes">
                           <Heart className="h-3 w-3" />
-                          {/* FIX: Provide a fallback of 0 */}
+                          
                           <span>{blog.public_reactions_count || 0}</span>
                         </div>
                         <div className="flex items-center space-x-1" title="Comments">
                           <MessageCircle className="h-3 w-3" />
-                          {/* FIX: Provide a fallback of 0 */}
+                          
                           <span>{blog.comments_count || 0}</span>
                         </div>
                       </div>

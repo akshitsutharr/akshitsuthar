@@ -1,7 +1,7 @@
 "use client"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Sparkles } from "lucide-react"
+import { Code, Sparkles } from "lucide-react"
 
 const techStack = [
   { name: "HTML", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
@@ -18,7 +18,7 @@ const techStack = [
   { name: "Neon Database", icon: "https://avatars.githubusercontent.com/u/77690634?s=200&v=4" },
   { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
   { name: "C++", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
-  { name: "C", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" },
+  { name: "C", icon: "https://img.icons8.com/color/480/c-programming.png" },
   { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
   { name: "Postman", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" },
   { name: "XAMPP", icon: "https://www.svgrepo.com/show/354575/xampp.svg" }
@@ -30,7 +30,8 @@ export function SkillsSection() {
       <Card className="border-border/50">
         <CardHeader>
           <CardTitle className="flex items-center space-x-2 text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">
-            <Sparkles className="h-6 w-6" />
+            {/* <Code className="w-7 h-7 text-primary" /> */}
+            <Sparkles className="text-3xl font-bold text-foreground" />
             <span>Tech Stack</span>
           </CardTitle>
         </CardHeader>
