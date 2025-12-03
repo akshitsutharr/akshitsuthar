@@ -10,7 +10,7 @@ export default function Home() {
     <div className="min-h-screen bg-background bg-dot-grid">
       <Header />
       <main className="container mx-auto px-4 py-8 max-w-7xl">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-1 space-y-8">
             <div className="sticky top-24">
               <div className="space-y-8 animate-fade-in">
@@ -19,11 +19,11 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="lg:col-span-3 space-y-8">
+          <div className="lg:col-span-2 space-y-8">
             <div className="space-y-8 animate-slide-up">
               <SkillsSection />
               <ProjectsSection />
-              <EducationSection />
+              {/* <EducationSection /> */}
             </div>
           </div>
         </div>

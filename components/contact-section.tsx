@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Mail,Contact } from "lucide-react";
+import { Mail, Contact, Send } from "lucide-react";
 import { useState } from "react";
 
 export function ContactSection() {
@@ -23,26 +23,27 @@ export function ContactSection() {
 
   return (
     <div className="space-y-8">
-      <Card className="border-border/85">
-        <CardHeader>
-          <CardTitle className="flex items-center space-x-2 text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">
-            <Mail className="h-6 w-6" />
-            <Contact className="w-5 h-5 text-primary mr-1" />
-            <span>Contact Me </span>
+      <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
+        <CardHeader className="pb-4">
+          <CardTitle className="flex items-center justify-center space-x-2 text-2xl font-bold">
+            <div className="p-2 bg-primary/10 rounded-lg">
+              <Contact className="w-6 h-6 text-primary" />
+            </div>
+            <span>Contact Me</span>
           </CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="p-6 pt-0">
           <div className="space-y-6">
             <div className="space-y-4">
               <div className="space-y-2">
                 <label
-                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-muted-foreground"
                   htmlFor="email"
                 >
                   Your Email
                 </label>
                 <input
-                  className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="flex h-11 w-full rounded-lg border border-input/50 bg-secondary/20 px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-all hover:border-primary/30"
                   placeholder="your.email@example.com"
                   type="email"
                   id="email"
@@ -53,13 +54,13 @@ export function ContactSection() {
 
               <div className="space-y-2">
                 <label
-                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-muted-foreground"
                   htmlFor="message"
                 >
                   Your Message
                 </label>
                 <textarea
-                  className="flex min-h-[120px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="flex min-h-[140px] w-full rounded-lg border border-input/50 bg-secondary/20 px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-all hover:border-primary/30 resize-none"
                   placeholder="Hi! I'd love to discuss a project opportunity with you..."
                   id="message"
                   value={message}
@@ -68,13 +69,15 @@ export function ContactSection() {
               </div>
 
               <Button
-                className="w-full bg-primary hover:bg-primary/90"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold h-11 rounded-lg shadow-lg shadow-primary/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
                 onClick={handleSend}
               >
-                Send Message 🚀
+                Send Message
+                <Send className="w-4 h-4 ml-2" />
               </Button>
 
-              <p className="text-xs text-center text-muted-foreground">
+              <p className="text-xs text-center text-muted-foreground flex items-center justify-center gap-1.5 mt-4">
+                <span className="w-2 h-2 rounded-full bg-yellow-500 animate-pulse"></span>
                 I typically respond within 24 hours ⚡
               </p>
             </div>
