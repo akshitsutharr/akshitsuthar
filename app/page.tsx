@@ -4,6 +4,7 @@ import { SkillsSection } from "@/components/skills-section"
 import { ProjectsSection } from "@/components/projects-section"
 import { EducationSection } from "@/components/education-section"
 import { ContactSection } from "@/components/contact-section"
+import { TerminalSection } from "@/components/terminal-section"
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
             <div className="space-y-8 animate-slide-up">
               <SkillsSection />
               <ProjectsSection />
+              <TerminalSection />
               {/* <EducationSection /> */}
             </div>
           </div>

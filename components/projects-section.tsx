@@ -26,6 +26,7 @@ import {
 import { JSX } from "react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import Image from "next/image"
 
 interface Technology {
   name: string
@@ -58,7 +59,16 @@ const projects: Project[] = [
     technologies: ["Next.js 14", "Supabase", "Spotify API", "Tailwind CSS", "Radix UI", "shadcn/ui"],
     repo: "https://github.com/akshitsutharr/beatshelf/tree/main",
     demo: "https://beatshelf.vercel.app/",
-    icon: <SiSpotify className="w-6 h-6 md:w-8 md:h-8 text-green-500" />,
+    icon: (
+      <div className="relative w-6 h-6 md:w-8 md:h-8">
+        <Image
+          src="/images/beatshelf-logo.png"
+          alt="BeatShelf Logo"
+          fill
+          className="object-contain"
+        />
+      </div>
+    ),
     featured: true
   },
   {
