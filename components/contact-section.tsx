@@ -2,14 +2,16 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Mail, Contact, Send } from "lucide-react";
+import { Contact, Send } from "lucide-react";
 import { useState } from "react";
 
 export function ContactSection() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
-  const handleSend = () => {
+  const handleSend = (event: React.FormEvent) => {
+    event.preventDefault();
+
     if (!email || !message) {
       alert('Please fill in both email and message.');
       return;
@@ -23,7 +25,7 @@ export function ContactSection() {
 
   return (
     <div className="space-y-8">
-      <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
+      <Card className="section-shell border-border/60 bg-card/50 backdrop-blur-sm">
         <CardHeader className="pb-4">
           <CardTitle className="flex items-center justify-center space-x-2 text-2xl font-bold">
             <div className="p-2 bg-primary/10 rounded-lg">
@@ -31,9 +33,10 @@ export function ContactSection() {
             </div>
             <span>Contact Me</span>
           </CardTitle>
+          <p className="text-center text-sm text-muted-foreground">Tell me about your project or collaboration idea.</p>
         </CardHeader>
         <CardContent className="p-6 pt-0">
-          <div className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSend}>
             <div className="space-y-4">
               <div className="space-y-2">
                 <label
@@ -69,19 +72,19 @@ export function ContactSection() {
               </div>
 
               <Button
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold h-11 rounded-lg shadow-lg shadow-primary/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
-                onClick={handleSend}
+                className="h-11 w-full rounded-lg bg-primary font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:scale-[1.01] hover:bg-primary/90 active:scale-[0.98]"
+                type="submit"
               >
                 Send Message
                 <Send className="w-4 h-4 ml-2" />
               </Button>
 
-              <p className="text-xs text-center text-muted-foreground flex items-center justify-center gap-1.5 mt-4">
+              <p className="mt-4 flex items-center justify-center gap-1.5 text-center text-xs text-muted-foreground">
                 <span className="w-2 h-2 rounded-full bg-yellow-500 animate-pulse"></span>
-                I typically respond within 24 hours ⚡
+                Typical response time: within 24 hours
               </p>
             </div>
-          </div>
+          </form>
         </CardContent>
       </Card>
     </div>

@@ -3,13 +3,22 @@
 @tailwind utilities;
 
 body {
-  background-image: radial-gradient(circle at 1px 1px, rgb(0 0 0 / 0.07) 1px, transparent 0);
-  background-size: 20px 20px;
-  background-position: 0 0; /* Change from -19px -19px to 0 0 */
+  background-image:
+    radial-gradient(circle at 16% 10%, rgb(249 115 22 / 0.2), transparent 36%),
+    radial-gradient(circle at 88% 0%, rgb(239 68 68 / 0.18), transparent 32%),
+    radial-gradient(circle at 1px 1px, rgb(255 255 255 / 0.09) 1px, transparent 0),
+    linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--background)) 100%);
+  background-size: auto, auto, 20px 20px, auto;
+  background-attachment: fixed;
 }
 
 .dark body {
-  background-image: radial-gradient(circle at 1px 1px, rgb(255 255 255 / 0.07) 1px, transparent 0);
+  background-image:
+    radial-gradient(circle at 16% 10%, rgb(249 115 22 / 0.2), transparent 36%),
+    radial-gradient(circle at 88% 0%, rgb(239 68 68 / 0.18), transparent 32%),
+    radial-gradient(circle at 1px 1px, rgb(255 255 255 / 0.09) 1px, transparent 0),
+    linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--background)) 100%);
+  background-size: auto, auto, 20px 20px, auto;
 }
 
 .card-hover {
@@ -35,59 +44,76 @@ body {
 @layer base {
   :root {
   --icon-filter: none;
-    --background: 0 0% 98%;
-    --foreground: 0 0% 12%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 12%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 12%;
-    --primary: 0 0% 12%;
+    --background: 0 0% 6%;
+    --foreground: 0 0% 96%;
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 96%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 2 82% 58%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 95%;
-    --secondary-foreground: 0 0% 20%;
-    --muted: 0 0% 95%;
-    --muted-foreground: 0 0% 40%;
-    --accent: 0 0% 95%;
-    --accent-foreground: 0 0% 20%;
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 0 0% 92%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 22 89% 52%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 0 0% 20%;
-    --radius: 0.5rem;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 2 82% 58%;
+    --radius: 0.85rem;
   }
 
   .dark {
   --icon-filter: invert(1);
-    --background: 0 0% 5%;
-    --foreground: 0 0% 100%;
-    --card: 0 0% 5%;
-    --card-foreground: 0 0% 100%;
-    --popover: 0 0% 5%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 0 0% 100%;
-    --primary-foreground: 0 0% 5%;
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 80%;
-    --accent: 0 0% 15%;
+    --background: 0 0% 6%;
+    --foreground: 0 0% 96%;
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 96%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 2 82% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 0 0% 92%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 22 89% 52%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
     --border: 0 0% 20%;
     --input: 0 0% 20%;
-    --ring: 0 0% 100%;
+    --ring: 2 82% 58%;
   }
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   * {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
     scroll-behavior: smooth;
+    font-family: var(--font-sora), sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: -0.02em;
+  }
+
+  pre,
+  code {
+    font-family: var(--font-mono), monospace;
   }
 }
 
@@ -99,6 +125,16 @@ body {
 }
 
 /* Custom Animations */
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
 @keyframes gradient-x {
   0%, 100% {
     background-size: 200% 200%;
@@ -144,6 +180,10 @@ body {
 .animate-gradient-x {
   animation: gradient-x 3s ease infinite;
   background-size: 200% 200%;
+}
+
+.animate-float-y {
+  animation: float-y 6s ease-in-out infinite;
 }
 
 .animate-fade-in {
@@ -226,4 +266,35 @@ body {
 
 .button-hover:hover::before {
   opacity: 1;
+}
+
+.mesh-bg {
+  position: relative;
+  isolation: isolate;
+}
+
+.mesh-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(700px circle at 10% 0%, rgb(249 115 22 / 0.12), transparent 45%),
+    radial-gradient(600px circle at 95% 20%, rgb(239 68 68 / 0.16), transparent 48%);
+}
+
+.section-shell {
+  border: 1px solid hsl(var(--border) / 0.65);
+  background: linear-gradient(180deg, hsl(var(--card) / 0.8), hsl(var(--card) / 0.55));
+  box-shadow:
+    0 12px 32px -20px rgb(15 23 42 / 0.45),
+    inset 0 1px 0 rgb(255 255 255 / 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.dark .section-shell {
+  box-shadow:
+    0 20px 38px -24px rgb(0 0 0 / 0.75),
+    inset 0 1px 0 rgb(255 255 255 / 0.06);
 }

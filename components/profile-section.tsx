@@ -7,15 +7,15 @@ import { MapPin, Mail, Layers, Code2, Database, Layout } from "lucide-react"
 import Link from "next/link"
 
 export function ProfileSection() {
-  const avatarImage = "/images/avatar1.webp"
+  const avatarImage = "/akshitProfile.jpeg"
 
   return (
     <div className="space-y-6 animate-fade-in">
-      <Card className="overflow-hidden card-hover border-border/50 bg-card/50 backdrop-blur-sm">
+      <Card className="section-shell card-hover overflow-hidden border-border/60 bg-card/50 backdrop-blur-sm">
         <CardContent className="p-8">
           <div className="flex flex-col items-center text-center space-y-6">
             <div className="relative group">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-purple-600 rounded-full blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
+              <div className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-primary to-amber-500 blur opacity-30 transition duration-500 group-hover:opacity-65"></div>
               <Avatar className="w-32 h-32 ring-4 ring-background relative transition-all duration-300 ease-in-out hover:scale-105 shadow-xl">
                 <AvatarImage
                   src={avatarImage || "/placeholder.svg"}
@@ -53,7 +53,7 @@ export function ProfileSection() {
         </CardContent>
       </Card>
 
-      <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
+      <Card className="section-shell border-border/60 bg-card/50 backdrop-blur-sm">
         <CardContent className="p-6">
           <h3 className="font-semibold mb-4 flex items-center gap-2 text-lg">
             <Layout className="w-5 h-5 text-primary" />
@@ -90,7 +90,7 @@ export function ProfileSection() {
         </CardContent>
       </Card>
 
-      <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
+      <Card className="section-shell border-border/60 bg-card/50 backdrop-blur-sm">
         <CardContent className="p-6">
           <h3 className="font-semibold mb-4 flex items-center gap-2 text-lg">
             <Mail className="w-5 h-5 text-primary" />

@@ -47,6 +47,52 @@ interface Project {
 
 const projects: Project[] = [
   {
+    name: "BlogTorch",
+    tagline: "Developer-First Block Blogging Platform",
+    description: "A premium full-stack blogging platform for technical storytelling, combining notebook-style content blocks, code presentation, and social engagement in one modern experience.",
+    features: [
+      "Block-based editor with drag-and-drop reordering",
+      "Rich technical blocks: Markdown, Code, Output, Image, Embed, Callout",
+      "Social features: likes, comments, bookmarks, follows",
+      "Secure auth and role-based access with Clerk"
+    ],
+    technologies: ["Next.js 16", "React 19", "TypeScript", "MongoDB", "Prisma", "Clerk", "Tailwind CSS", "shadcn/ui"],
+    repo: "https://github.com/akshitsutharr/BlogTorch",
+    demo: "https://blogtorch.vercel.app/",
+    icon: <PenTool className="w-6 h-6 md:w-8 md:h-8 text-rose-500" />,
+    featured: true
+  },
+  {
+    name: "DevDNA",
+    tagline: "GitHub Developer Personality Graph",
+    description: "A Next.js app that generates embeddable SVG developer DNA cards by analyzing real GitHub history through the GraphQL API and deriving developer traits and archetypes.",
+    features: [
+      "Embeddable SVG card endpoint for profiles and READMEs",
+      "Real GitHub contribution analytics with GraphQL",
+      "Trait and archetype generation from commits, PRs, issues, and language mix",
+      "Multiple visual themes: dark, light, and neon"
+    ],
+    technologies: ["Next.js 16", "React 19", "GraphQL", "Satori", "JavaScript", "Lucide Icons"],
+    repo: "https://github.com/akshitsutharr/DevDNA",
+    demo: "https://thedevdna.vercel.app/",
+    icon: <Bot className="w-6 h-6 md:w-8 md:h-8 text-cyan-500" />
+  },
+  {
+    name: "Markdown Viewer",
+    tagline: "Feature-Rich Markdown Editor & Previewer",
+    description: "A modern browser-based Markdown editor with split-pane live preview, Mermaid diagrams, MathJax equations, syntax highlighting, and export support for Markdown, HTML, and PDF.",
+    features: [
+      "Live markdown preview with debounced rendering",
+      "Mermaid diagram and MathJax LaTeX rendering",
+      "Import and export: .md, .html, and .pdf",
+      "Theme support, sync scrolling, and responsive view modes"
+    ],
+    technologies: ["JavaScript", "HTML", "CSS", "Bootstrap", "Mermaid", "MathJax", "DOMPurify", "Marked.js", "Highlight.js"],
+    repo: "https://github.com/akshitsutharr/md-viewer",
+    demo: "https://markdown-view.vercel.app/",
+    icon: <Layout className="w-6 h-6 md:w-8 md:h-8 text-emerald-500" />
+  },
+  {
     name: "BeatShelf",
     tagline: "Full-Stack Music Discovery Platform",
     description: "A comprehensive music discovery and review platform built with Next.js 14, Supabase, and the Spotify Web API. It empowers users to explore millions of songs, write detailed rich-text reviews, rate tracks, and curate personalized collections.",
@@ -175,7 +221,10 @@ const getTechIcon = (tech: string): Technology => {
       return { name: tech, icon: <SiSupabase className={`text-emerald-500 ${commonIconClass}`} /> }
     case "Next.js":
     case "Next.js 14":
+    case "Next.js 16":
       return { name: tech, icon: <SiNextdotjs className={`text-foreground ${commonIconClass}`} /> }
+    case "React 19":
+      return { name: tech, icon: <SiReact className={`text-sky-400 ${commonIconClass}`} /> }
     case "MongoDB":
       return { name: tech, icon: <SiMongodb className={`text-green-500 ${commonIconClass}`} /> }
     case "Express.js":
@@ -186,6 +235,12 @@ const getTechIcon = (tech: string): Technology => {
       return { name: tech, icon: <SiTypescript className={`text-blue-500 ${commonIconClass}`} /> }
     case "JavaScript":
       return { name: tech, icon: <SiJavascript className={`text-yellow-400 ${commonIconClass}`} /> }
+    case "HTML":
+      return { name: tech, icon: <Code2 className={`text-orange-500 ${commonIconClass}`} /> }
+    case "CSS":
+      return { name: tech, icon: <Layers className={`text-blue-500 ${commonIconClass}`} /> }
+    case "Bootstrap":
+      return { name: tech, icon: <Layout className={`text-violet-500 ${commonIconClass}`} /> }
     case "Tailwind CSS":
       return { name: tech, icon: <SiTailwindcss className={`text-teal-400 ${commonIconClass}`} /> }
     case "Vercel":
@@ -210,6 +265,18 @@ const getTechIcon = (tech: string): Technology => {
       return { name: tech, icon: <SiOpenai className={`text-green-600 ${commonIconClass}`} /> }
     case "TMDB API":
       return { name: tech, icon: <Database className={`text-yellow-500 ${commonIconClass}`} /> }
+    case "GraphQL":
+      return { name: tech, icon: <Database className={`text-pink-500 ${commonIconClass}`} /> }
+    case "Satori":
+      return { name: tech, icon: <Zap className={`text-indigo-500 ${commonIconClass}`} /> }
+    case "Mermaid":
+      return { name: tech, icon: <Workflow className={`text-teal-500 ${commonIconClass}`} /> }
+    case "MathJax":
+      return { name: tech, icon: <Code2 className={`text-cyan-500 ${commonIconClass}`} /> }
+    case "DOMPurify":
+      return { name: tech, icon: <Database className={`text-emerald-500 ${commonIconClass}`} /> }
+    case "Marked.js":
+      return { name: tech, icon: <Code2 className={`text-amber-500 ${commonIconClass}`} /> }
     case "Inngest":
       return { name: tech, icon: <Workflow className={`text-indigo-500 ${commonIconClass}`} /> }
     case "Spotify API":
@@ -225,8 +292,9 @@ const getTechIcon = (tech: string): Technology => {
 
 export function ProjectsSection() {
   return (
-    <section className="w-full space-y-8 md:space-y-12">
+    <section id="projects" className="w-full space-y-8 scroll-mt-24 md:space-y-12">
       <div className="flex flex-col gap-3 md:gap-4">
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary/80">Selected Work</p>
         <div className="flex items-center gap-3">
           <div className="p-2 bg-primary/10 rounded-lg">
             <Folder className="w-5 h-5 md:w-6 md:h-6 text-primary" />
@@ -244,7 +312,7 @@ export function ProjectsSection() {
         {projects.map((project, index) => (
           <Card
             key={index}
-            className="group relative overflow-hidden border-muted/60 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all duration-500 hover:shadow-xl hover:shadow-primary/5 flex flex-col"
+            className="section-shell group relative flex flex-col overflow-hidden rounded-2xl border-muted/60 bg-card/55 backdrop-blur-sm transition-all duration-500 hover:border-primary/55 hover:shadow-xl hover:shadow-primary/10"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 

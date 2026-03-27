@@ -1,7 +1,7 @@
 "use client"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Code, Sparkles } from "lucide-react"
+import { Sparkles } from "lucide-react"
 
 const techStack = [
   { name: "HTML", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
@@ -35,21 +35,24 @@ const techStack = [
 
 export function SkillsSection() {
   return (
-    <div className="space-y-8">
-      <Card className="border-border/50">
-        <CardHeader>
-          <CardTitle className="flex items-center space-x-2 text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">
-            {/* <Code className="w-7 h-7 text-primary" /> */}
-            <Sparkles className="text-3xl font-bold text-foreground" />
+    <section id="skills" className="space-y-8 scroll-mt-24">
+      <Card className="section-shell overflow-hidden rounded-2xl border-border/60">
+        <CardHeader className="pb-3">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary/80">Core Capabilities</p>
+          <CardTitle className="flex items-center gap-2 text-2xl md:text-3xl">
+            <Sparkles className="h-6 w-6 text-primary" />
             <span>Tech Stack</span>
           </CardTitle>
+          <p className="max-w-2xl text-sm text-muted-foreground md:text-base">
+            A practical toolkit across frontend, backend, data, and AI experimentation for building production-ready web applications.
+          </p>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
             {techStack.map((tech, index) => (
               <div
                 key={index}
-                className="group flex flex-col items-center justify-center p-4 rounded-xl bg-card/50 hover:bg-card transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1"
+                className="group flex flex-col items-center justify-center rounded-xl border border-border/60 bg-card/55 p-4 transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:bg-card hover:shadow-lg hover:shadow-primary/10"
               >
                 <div className="relative w-12 h-12 mb-3">
                   <img
@@ -67,6 +70,6 @@ export function SkillsSection() {
           </div>
         </CardContent>
       </Card>
-    </div>
+    </section>
   )
 }
